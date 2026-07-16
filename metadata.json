@@ -1,0 +1,6 @@
+{
+  "name": "Image to JPG Converter",
+  "description": "Fast, free, and secure online Image to JPG Converter. Convert PNG, WEBP, HEIC, AVIF, GIF, BMP, TIFF, and SVG directly in your browser without uploading files.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

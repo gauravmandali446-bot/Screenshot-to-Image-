@@ -1,0 +1,3 @@
+# SPA fallback routing for Cloudflare Pages
+# Ensures all clean URLs are handled by our client-side React router
+/* /index.html 200

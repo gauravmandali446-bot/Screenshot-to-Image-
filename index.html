@@ -26,14 +26,14 @@
     <meta property="twitter:description" content="Convert PNG, WEBP, HEIC, AVIF, GIF, BMP, TIFF, and SVG images to JPG online for free. 100% private browser conversion with no upload limits." />
     <meta property="twitter:image" content="/og-image.jpg" />
 
-    <!-- Favicon and App Icons (RealFaviconGenerator Best Practices) -->
+    <!-- Favicon and App Icons (Custom Configured) -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="apple-mobile-web-app-title" content="Image" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2563eb" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <meta name="apple-mobile-web-app-title" content="Image to JPG" />
     <meta name="application-name" content="Image to JPG" />
     <meta name="msapplication-TileColor" content="#2563eb" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
@@ -42,6 +42,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K059VRSJHP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K059VRSJHP');
+    </script>
   </head>
   <body class="antialiased bg-gray-50/20">
     <div id="root"></div>

@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Define paths
-const SOURCE_IMAGE = path.resolve(process.cwd(), 'src/assets/images/app_logo_1784192893320.jpg');
+const SOURCE_IMAGE = path.resolve(process.cwd(), 'src/assets/images/new_app_logo_1784380130204.jpg');
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 
 async function main() {
@@ -26,6 +26,7 @@ async function main() {
   const targets = [
     { name: 'favicon-16x16.png', size: 16 },
     { name: 'favicon-32x32.png', size: 32 },
+    { name: 'favicon-96x96.png', size: 96 },
     { name: 'apple-touch-icon.png', size: 180 },
     { name: 'android-chrome-192x192.png', size: 192 },
     { name: 'android-chrome-512x512.png', size: 512 },
@@ -38,6 +39,23 @@ async function main() {
     await resized.write(outputPath as any);
     console.log(`Generated: ${target.name} (${target.size}x${target.size})`);
   }
+
+  // Generate a beautiful, clean favicon.svg matching the custom green branding icon
+  const faviconSvgPath = path.join(PUBLIC_DIR, 'favicon.svg');
+  const faviconSvgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#c3ffb5" />
+      <stop offset="100%" stop-color="#a4f891" />
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="140" fill="url(#bgGrad)" />
+  <rect x="135" y="140" width="24" height="232" rx="12" fill="#1e1e1e" />
+  <rect x="188" y="140" width="136" height="232" rx="36" fill="#ffffff" stroke="#1e1e1e" stroke-width="24" />
+  <rect x="353" y="140" width="24" height="232" rx="12" fill="#1e1e1e" />
+</svg>`;
+  fs.writeFileSync(faviconSvgPath, faviconSvgContent);
+  console.log('Generated: public/favicon.svg');
 
   // Copy or write the main logo to log.ofa.st
   const logoPath = path.join(PUBLIC_DIR, 'log.ofa.st');

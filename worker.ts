@@ -1,7 +1,7 @@
 // Cloudflare Worker entry point for Image to JPG Converter
 // Implements 1:1 matching of dynamic SEO metadata injection and fallback routing from server.ts
 
-const BASE_URL = 'https://imagetojpg.com';
+const BASE_URL = 'https://imagetojpgx.com';
 
 function injectMetadata(html: string, urlPath: string): string {
   const cleanPath = urlPath.toLowerCase().replace(/\/$/, '') || '/';
@@ -60,10 +60,10 @@ function injectMetadata(html: string, urlPath: string): string {
       '@graph': [
         {
           '@type': 'WebApplication',
-          '@id': 'https://imagetojpg.com/#webassembly-converter',
+          '@id': 'https://imagetojpgx.com/#webassembly-converter',
           'name': 'Image to JPG Converter',
-          'url': 'https://imagetojpg.com/',
-          'image': 'https://imagetojpg.com/og-image.jpg',
+          'url': 'https://imagetojpgx.com/',
+          'image': 'https://imagetojpgx.com/og-image.jpg',
           'applicationCategory': 'MultimediaApplication',
           'operatingSystem': 'All',
           'browserRequirements': 'Requires HTML5 Canvas and WebAssembly support',
@@ -76,13 +76,13 @@ function injectMetadata(html: string, urlPath: string): string {
         },
         {
           '@type': 'BreadcrumbList',
-          '@id': 'https://imagetojpg.com/#breadcrumb',
+          '@id': 'https://imagetojpgx.com/#breadcrumb',
           'itemListElement': [
             {
               '@type': 'ListItem',
               'position': 1,
               'name': 'Home',
-              'item': 'https://imagetojpg.com/'
+              'item': 'https://imagetojpgx.com/'
             }
           ]
         }
@@ -109,7 +109,7 @@ function injectMetadata(html: string, urlPath: string): string {
           '@type': 'ListItem',
           'position': 1,
           'name': 'Home',
-          'item': 'https://imagetojpg.com/'
+          'item': 'https://imagetojpgx.com/'
         },
         {
           '@type': 'ListItem',

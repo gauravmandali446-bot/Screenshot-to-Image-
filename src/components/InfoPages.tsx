@@ -327,7 +327,7 @@ export default function InfoPages({ path }: InfoPagesProps) {
                   8. Contact Information
                 </h2>
                 <p>
-                  If you have any questions regarding our client-side guarantee or data-handling procedures, please contact us via email at <a href="mailto:support@imagetojpg.com" className="text-blue-600 hover:underline">support@imagetojpg.com</a> or use our <a href="/contact" onClick={(e) => { e.preventDefault(); navigate('/contact'); }} className="text-blue-600 hover:underline">Contact Form</a>.
+                  If you have any questions regarding our client-side guarantee or data-handling procedures, please contact us via email at <a href="mailto:support@imagetojpgx.com" className="text-blue-600 hover:underline">support@imagetojpgx.com</a> or use our <a href="/contact" onClick={(e) => { e.preventDefault(); navigate('/contact'); }} className="text-blue-600 hover:underline">Contact Form</a>.
                 </p>
               </section>
             </div>
@@ -342,7 +342,7 @@ export default function InfoPages({ path }: InfoPagesProps) {
                   1. Acceptance of Terms
                 </h2>
                 <p>
-                  By accessing or using the website at <a href="https://imagetojpg.com" className="text-blue-600 hover:underline">https://imagetojpg.com</a> and its associated local converter tools, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our local converter service.
+                  By accessing or using the website at <a href="https://imagetojpgx.com" className="text-blue-600 hover:underline">https://imagetojpgx.com</a> and its associated local converter tools, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our local converter service.
                 </p>
               </section>
 
@@ -413,7 +413,7 @@ export default function InfoPages({ path }: InfoPagesProps) {
                   7. Contact Information
                 </h2>
                 <p>
-                  If you require clarification on these Terms and Conditions, please reach out to our team at <a href="mailto:support@imagetojpg.com" className="text-blue-600 hover:underline">support@imagetojpg.com</a>.
+                  If you require clarification on these Terms and Conditions, please reach out to our team at <a href="mailto:support@imagetojpgx.com" className="text-blue-600 hover:underline">support@imagetojpgx.com</a>.
                 </p>
               </section>
             </div>
@@ -530,7 +530,7 @@ export default function InfoPages({ path }: InfoPagesProps) {
                     <div className="space-y-2.5 text-xs text-gray-600">
                       <p>Prefer direct emailing? Feel free to contact our support department at any time:</p>
                       <div className="p-3 bg-white rounded-xl border border-gray-200/60 font-mono text-center font-bold text-blue-600 selection:bg-blue-100">
-                        <a href="mailto:support@imagetojpg.com">support@imagetojpg.com</a>
+                        <a href="mailto:support@imagetojpgx.com">support@imagetojpgx.com</a>
                       </div>
                     </div>
                   </div>

@@ -52,7 +52,7 @@ If you prefer deploying directly from your local terminal or a CI/CD script:
 1. In the Cloudflare Pages dashboard, go to your project.
 2. Navigate to the **Custom domains** tab.
 3. Click **Set up a custom domain**.
-4. Enter your domain name (e.g., `imagetojpg.com`) and click **Continue**.
+4. Enter your domain name (e.g., `imagetojpgx.com`) and click **Continue**.
 5. Cloudflare will automatically configure the CNAME and DNS records if your domain is managed through Cloudflare, or provide DNS settings to add to your external domain registrar.
 
 ---

@@ -13,3 +13,4 @@ Disallow: /loading
 # Canonical Host and Sitemap Location
 Host: https://imagetojpgx.com
 Sitemap: https://imagetojpgx.com/sitemap.xml
+

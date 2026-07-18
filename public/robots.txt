@@ -14,3 +14,4 @@ Disallow: /loading
 Host: https://imagetojpgx.com
 Sitemap: https://imagetojpgx.com/sitemap.xml
 
+#update

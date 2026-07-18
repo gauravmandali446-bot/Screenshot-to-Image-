@@ -12,7 +12,8 @@ import {
   Play, 
   Info,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Image as ImageIcon
 } from 'lucide-react';
 import { ConversionItem } from '../types';
 import { formatBytes } from '../utils/converter';
@@ -148,9 +149,9 @@ export default function Converter({
               <div className="flex items-center space-x-4 min-w-0 flex-1">
                 {/* Thumbnail Preview */}
                 <div className="relative w-14 h-14 rounded-lg bg-gray-50 border border-gray-100 overflow-hidden flex-shrink-0 flex items-center justify-center">
-                  {item.previewUrl ? (
+                  {item.convertedUrl || item.previewUrl ? (
                     <img 
-                      src={item.previewUrl} 
+                      src={item.convertedUrl || item.previewUrl} 
                       alt={item.name} 
                       className="w-full h-full object-cover"
                       loading="lazy"

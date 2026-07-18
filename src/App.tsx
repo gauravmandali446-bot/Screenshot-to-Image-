@@ -346,7 +346,7 @@ export default function App() {
       <Navbar />
 
       {/* Main Content Area */}
-      <main className="flex-grow py-10 md:py-16 space-y-12">
+      <main className="flex-grow py-5 md:py-8 space-y-6">
         {/* Title and description */}
         <Hero />
 

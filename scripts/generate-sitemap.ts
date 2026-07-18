@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Define the high-fidelity production base URL for SEO indexing
-const BASE_URL = 'https://imagetojpg.org';
+const BASE_URL = 'https://imagetojpg.com';
 
 interface SitemapRoute {
   path: string;

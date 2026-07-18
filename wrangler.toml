@@ -1,0 +1,8 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "image-to-jpg-converter"
+main = "worker.ts"
+compatibility_date = "2024-04-03"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"

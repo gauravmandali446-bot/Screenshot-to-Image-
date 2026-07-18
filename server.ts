@@ -9,7 +9,7 @@ async function startServer() {
   const isProd = process.env.NODE_ENV === 'production';
 
   // Base URL for canonical tags and open graph URL references
-  const BASE_URL = 'https://imagetojpg.org';
+  const BASE_URL = 'https://imagetojpg.com';
 
   // Helper to inject SEO metadata into index.html
   function injectMetadata(html: string, urlPath: string): string {
@@ -69,10 +69,10 @@ async function startServer() {
         '@graph': [
           {
             '@type': 'WebApplication',
-            '@id': 'https://imagetojpg.org/#webassembly-converter',
+            '@id': 'https://imagetojpg.com/#webassembly-converter',
             'name': 'Image to JPG Converter',
-            'url': 'https://imagetojpg.org/',
-            'image': 'https://imagetojpg.org/og-image.jpg',
+            'url': 'https://imagetojpg.com/',
+            'image': 'https://imagetojpg.com/og-image.jpg',
             'applicationCategory': 'MultimediaApplication',
             'operatingSystem': 'All',
             'browserRequirements': 'Requires HTML5 Canvas and WebAssembly support',
@@ -85,13 +85,13 @@ async function startServer() {
           },
           {
             '@type': 'BreadcrumbList',
-            '@id': 'https://imagetojpg.org/#breadcrumb',
+            '@id': 'https://imagetojpg.com/#breadcrumb',
             'itemListElement': [
               {
                 '@type': 'ListItem',
                 'position': 1,
                 'name': 'Home',
-                'item': 'https://imagetojpg.org/'
+                'item': 'https://imagetojpg.com/'
               }
             ]
           }
@@ -118,7 +118,7 @@ async function startServer() {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': 'https://imagetojpg.org/'
+            'item': 'https://imagetojpg.com/'
           },
           {
             '@type': 'ListItem',
@@ -208,7 +208,7 @@ async function startServer() {
   });
 
   app.get('/robots.txt', (req, res) => {
-    const host = req.get('host') || 'imagetojpg.org';
+    const host = req.get('host') || 'imagetojpg.com';
     const isHttps = req.secure || req.headers['x-forwarded-proto'] === 'https';
     const protocol = isHttps ? 'https' : 'http';
     const domain = `${protocol}://${host}`;

@@ -33,9 +33,29 @@ async function main() {
     { name: 'mstile-150x150.png', size: 150 }
   ];
 
+  let useImageMagick = false;
+  try {
+    const { execSync } = await import('child_process');
+    execSync('convert -version', { stdio: 'ignore' });
+    useImageMagick = true;
+    console.log('ImageMagick convert is available! Using it for high-fidelity favicon generation.');
+  } catch (e) {
+    console.log('ImageMagick not detected. Falling back to Jimp for image scaling.');
+  }
+
   for (const target of targets) {
-    const resized = image.clone().resize({ w: target.size, h: target.size });
     const outputPath = path.join(PUBLIC_DIR, target.name);
+    if (useImageMagick) {
+      try {
+        const { execSync } = await import('child_process');
+        execSync(`convert "${SOURCE_IMAGE}" -resize ${target.size}x${target.size} "${outputPath}"`);
+        console.log(`Generated via ImageMagick: ${target.name} (${target.size}x${target.size})`);
+        continue;
+      } catch (e) {
+        console.warn(`ImageMagick failed to generate ${target.name}. Falling back to Jimp.`, e);
+      }
+    }
+    const resized = image.clone().resize({ w: target.size, h: target.size });
     await resized.write(outputPath as any);
     console.log(`Generated: ${target.name} (${target.size}x${target.size})`);
   }
@@ -95,10 +115,21 @@ async function main() {
   fs.copyFileSync(path.join(PUBLIC_DIR, 'android-chrome-512x512.png'), logoPngPath);
   console.log('Generated: public/logo.png');
 
-  // Copy favicon-32x32.png as favicon.ico
+  // Generate standard compliant multi-resolution favicon.ico using ImageMagick
   const faviconIcoPath = path.join(PUBLIC_DIR, 'favicon.ico');
-  fs.copyFileSync(path.join(PUBLIC_DIR, 'favicon-32x32.png'), faviconIcoPath);
-  console.log('Generated: public/favicon.ico');
+  if (useImageMagick) {
+    try {
+      const { execSync } = await import('child_process');
+      execSync(`convert "${SOURCE_IMAGE}" -define icon:auto-resize=16,32,48 "${faviconIcoPath}"`);
+      console.log('Generated standard multi-resolution favicon.ico using ImageMagick!');
+    } catch (e) {
+      console.warn('ImageMagick favicon.ico generation failed. Falling back to copy.', e);
+      fs.copyFileSync(path.join(PUBLIC_DIR, 'favicon-32x32.png'), faviconIcoPath);
+    }
+  } else {
+    fs.copyFileSync(path.join(PUBLIC_DIR, 'favicon-32x32.png'), faviconIcoPath);
+    console.log('Generated: public/favicon.ico (Jimp PNG fallback)');
+  }
 
   // Generate Open Graph image (since it's a JPG extension, Jimp supports it perfectly)
   const ogPath = path.join(PUBLIC_DIR, 'og-image.jpg');

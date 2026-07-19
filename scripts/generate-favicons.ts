@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Define paths
-const SOURCE_IMAGE = path.resolve(process.cwd(), 'src/assets/images/new_app_logo_1784380130204.jpg');
+const SOURCE_IMAGE = path.resolve(process.cwd(), 'src/assets/images/new_favicon_source_1784452125794.jpg');
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 
 async function main() {
@@ -40,19 +40,47 @@ async function main() {
     console.log(`Generated: ${target.name} (${target.size}x${target.size})`);
   }
 
-  // Generate a beautiful, clean favicon.svg matching the custom green branding icon
+  // Generate a beautiful, clean favicon.svg matching the custom lavender branding icon
   const faviconSvgPath = path.join(PUBLIC_DIR, 'favicon.svg');
   const faviconSvgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-      <stop offset="0%" stop-color="#c3ffb5" />
-      <stop offset="100%" stop-color="#a4f891" />
-    </radialGradient>
+    <!-- Light purple/lavender gradient for the squircle background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e9e2ff" />
+      <stop offset="100%" stop-color="#d6c5ff" />
+    </linearGradient>
+
+    <!-- Rich purple glow for the centered image card -->
+    <filter id="purpleGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#7c3aed" flood-opacity="0.4" />
+    </filter>
+
+    <!-- Clip path to keep mountain peaks strictly inside the rounded image card -->
+    <clipPath id="cardClip">
+      <rect x="140" y="140" width="232" height="232" rx="56" />
+    </clipPath>
   </defs>
-  <rect width="512" height="512" rx="140" fill="url(#bgGrad)" />
-  <rect x="135" y="140" width="24" height="232" rx="12" fill="#1e1e1e" />
-  <rect x="188" y="140" width="136" height="232" rx="36" fill="#ffffff" stroke="#1e1e1e" stroke-width="24" />
-  <rect x="353" y="140" width="24" height="232" rx="12" fill="#1e1e1e" />
+
+  <!-- Outer Squircle Background -->
+  <rect width="512" height="512" rx="160" fill="url(#bgGrad)" />
+
+  <!-- Centered Image Card with soft purple shadow -->
+  <rect x="140" y="140" width="232" height="232" rx="56" fill="#ffffff" stroke="#1e1b4b" stroke-width="18" stroke-linejoin="round" filter="url(#purpleGlow)" />
+
+  <!-- Inside Content clipped to card boundaries -->
+  <g clip-path="url(#cardClip)">
+    <!-- Sun (Top-Left) -->
+    <circle cx="205" cy="205" r="24" fill="#ffffff" stroke="#1e1b4b" stroke-width="16" />
+
+    <!-- Small mountain peak (Left) -->
+    <path d="M 120 380 L 210 290 L 280 380" fill="#ffffff" stroke="#1e1b4b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Large mountain peak (Right) -->
+    <path d="M 180 380 L 290 220 L 390 380" fill="#ffffff" stroke="#1e1b4b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Redraw the border of the image card on top of clipped mountains to ensure a crisp edge -->
+  <rect x="140" y="140" width="232" height="232" rx="56" fill="none" stroke="#1e1b4b" stroke-width="18" stroke-linejoin="round" />
 </svg>`;
   fs.writeFileSync(faviconSvgPath, faviconSvgContent);
   console.log('Generated: public/favicon.svg');

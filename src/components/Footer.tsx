@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="flex items-center justify-center md:justify-start space-x-2.5">
               <div className="w-7 h-7 rounded-lg overflow-hidden border border-gray-100 flex items-center justify-center bg-white shadow-3xs">
                 <img 
-                  src="/log.ofa.st" 
+                  src="/logo.png" 
                   alt="Image to JPG Logo" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

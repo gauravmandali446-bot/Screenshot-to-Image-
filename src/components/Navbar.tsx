@@ -40,7 +40,7 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-center w-9 h-9 rounded-xl overflow-hidden border border-gray-100 shadow-xs bg-white">
               <img 
-                src="/log.ofa.st" 
+                src="/logo.png" 
                 alt="Image to JPG Logo" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

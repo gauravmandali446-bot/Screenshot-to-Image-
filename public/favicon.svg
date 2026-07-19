@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Lavender Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EBE0FF" />
+      <stop offset="100%" stop-color="#DCD0FF" />
+    </linearGradient>
+
+    <!-- Center Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Lavender Background -->
+  <rect width="512" height="512" rx="130" fill="url(#bgGrad)" />
+
+  <!-- Purple/Violet Radial Glow behind the icon -->
+  <circle cx="256" cy="256" r="110" fill="#9061FF" filter="url(#glow)" opacity="0.65" />
+
+  <!-- Inner Icon Clip Path -->
+  <clipPath id="innerArea">
+    <rect x="140" y="140" width="232" height="232" rx="38" />
+  </clipPath>
+
+  <!-- Inner Photograph Card -->
+  <!-- Outer card with thick border -->
+  <rect x="128" y="128" width="256" height="256" rx="50" fill="#F7F3FF" stroke="#212121" stroke-width="24" stroke-linejoin="round" />
+
+  <!-- Clip elements to the inside of the inner card -->
+  <g clip-path="url(#innerArea)">
+    <!-- White highlight slope (triangle on the bottom right) -->
+    <!-- Starts under the ridge line -->
+    <polygon points="320,252 390,322 390,390 260,390" fill="#FFFFFF" />
+
+    <!-- Circle (Sun) -->
+    <circle cx="215" cy="215" r="32" stroke="#212121" stroke-width="20" fill="none" />
+
+    <!-- Mountain Ridge -->
+    <path d="M110 374 L320 252 L394 326" fill="none" stroke="#212121" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>

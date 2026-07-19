@@ -159,7 +159,7 @@ export default function FAQ() {
     "@type": "Organization",
     "name": "Image to JPG Converter",
     "url": "https://image-to-jpg-converter.example.com/",
-    "logo": "https://image-to-jpg-converter.example.com/logo.png"
+    "logo": "https://imagetojpgx.com/logo.png"
   };
 
   return (

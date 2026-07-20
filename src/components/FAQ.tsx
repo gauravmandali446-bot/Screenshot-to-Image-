@@ -131,13 +131,13 @@ export default function FAQ() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://image-to-jpg-converter.example.com/"
+        "item": "https://imagetojpgx.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Image to JPG Converter",
-        "item": "https://image-to-jpg-converter.example.com/image-to-jpg"
+        "item": "https://imagetojpgx.com/image-to-jpg"
       }
     ]
   };
@@ -146,10 +146,10 @@ export default function FAQ() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Image to JPG Converter",
-    "url": "https://image-to-jpg-converter.example.com/image-to-jpg",
+    "url": "https://imagetojpgx.com/image-to-jpg",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://image-to-jpg-converter.example.com/image-to-jpg?q={search_term_string}",
+      "target": "https://imagetojpgx.com/image-to-jpg?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
@@ -158,7 +158,7 @@ export default function FAQ() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Image to JPG Converter",
-    "url": "https://image-to-jpg-converter.example.com/",
+    "url": "https://imagetojpgx.com/",
     "logo": "https://imagetojpgx.com/logo.png"
   };
 

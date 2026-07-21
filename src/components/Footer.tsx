@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, X, Github, Twitter, Linkedin, ExternalLink } from 'lucide-react';
+import { ShieldCheck, X, Twitter, Linkedin, ExternalLink } from 'lucide-react';
 import { navigate } from '../utils/navigation';
 
 export default function Footer() {
@@ -54,15 +54,6 @@ export default function Footer() {
 
             {/* Social Links Placeholder */}
             <div className="flex items-center justify-center md:justify-start space-x-3.5 pt-2">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-lg bg-gray-50 border border-gray-100 text-gray-400 hover:text-gray-900 hover:bg-gray-100 transition-colors flex items-center justify-center focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-hidden"
-                aria-label="Follow us on GitHub (external link)"
-              >
-                <Github className="w-4 h-4" />
-              </a>
               <a 
                 href="https://twitter.com" 
                 target="_blank" 

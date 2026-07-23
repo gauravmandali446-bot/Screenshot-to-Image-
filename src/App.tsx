@@ -18,6 +18,60 @@ import Error404 from './components/Error404';
 import Error500 from './components/Error500';
 import InfoPages from './components/InfoPages';
 
+// Metadata mapping for SEO routes
+const ROUTE_METADATA: Record<string, { title: string; description: string; format: string }> = {
+  '/': {
+    title: 'Image to JPG Converter - Free & Secure Client-Side Tool',
+    description: 'Convert PNG, WEBP, HEIC, AVIF, GIF, BMP, TIFF, and SVG images to JPG format online instantly in your browser.',
+    format: 'ALL',
+  },
+  '/image-to-jpg': {
+    title: 'Image to JPG Converter - Free & Secure Client-Side Tool',
+    description: 'Convert PNG, WEBP, HEIC, AVIF, GIF, BMP, TIFF, and SVG images to JPG format online instantly in your browser.',
+    format: 'ALL',
+  },
+  '/png-to-jpg': {
+    title: 'Convert PNG to JPG Online - Fast & Free | ImageToJPGX',
+    description: 'Convert PNG images to JPG format instantly. Reduce file size while keeping high visual quality without uploading files to any server.',
+    format: 'PNG',
+  },
+  '/webp-to-jpg': {
+    title: 'Convert WEBP to JPG Online - Instant & Private | ImageToJPGX',
+    description: 'Easily transform WEBP images into universally supported JPG photos directly inside your browser.',
+    format: 'WEBP',
+  },
+  '/heic-to-jpg': {
+    title: 'Convert HEIC to JPG Online - iPhone Photos to JPG | ImageToJPGX',
+    description: 'Convert Apple HEIC and HEIF photos from iPhone or iPad to JPG format instantly. Free, secure, and zero backend uploads.',
+    format: 'HEIC',
+  },
+  '/avif-to-jpg': {
+    title: 'Convert AVIF to JPG Online - Free & Private | ImageToJPGX',
+    description: 'Convert modern AVIF images into widely compatible JPG format locally on your device.',
+    format: 'AVIF',
+  },
+  '/gif-to-jpg': {
+    title: 'Convert GIF to JPG Online - Extract Frames Free | ImageToJPGX',
+    description: 'Convert static or animated GIF images to high-quality JPG format instantly in your browser.',
+    format: 'GIF',
+  },
+  '/bmp-to-jpg': {
+    title: 'Convert BMP to JPG Online - Fast Compression | ImageToJPGX',
+    description: 'Compress uncompressed BMP bitmap images into lightweight JPG files online for free.',
+    format: 'BMP',
+  },
+  '/tiff-to-jpg': {
+    title: 'Convert TIFF to JPG Online - High Resolution | ImageToJPGX',
+    description: 'Convert print-ready TIFF images to web-friendly JPG photos quickly and safely.',
+    format: 'TIFF',
+  },
+  '/svg-to-jpg': {
+    title: 'Convert SVG to JPG Online - Vector to Image | ImageToJPGX',
+    description: 'Render scalable vector SVG graphics into crisp rasterized JPG images instantly.',
+    format: 'SVG',
+  },
+};
+
 export default function App() {
   const [items, setItems] = useState<ConversionItem[]>([]);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -33,6 +87,20 @@ export default function App() {
       window.removeEventListener('popstate', handleLocationChange);
     };
   }, []);
+
+  // Dynamic document title and meta description updates for SEO
+  useEffect(() => {
+    const normalized = currentPath.toLowerCase().replace(/\/$/, '') || '/';
+    const meta = ROUTE_METADATA[normalized];
+
+    if (meta) {
+      document.title = meta.title;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', meta.description);
+      }
+    }
+  }, [currentPath]);
 
   // Page Scroll Tracker for visual effects
   useEffect(() => {
@@ -347,13 +415,13 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-grow py-5 md:py-8 space-y-6">
-        {/* Title and description */}
-        <Hero />
+        {/* Title and description dynamically updated per route */}
+        <Hero path={normalizedPath} />
 
         {/* Action workplace (Upload box or Active converter dashboard) */}
         <section className="max-w-5xl mx-auto px-4" id="main-workplace">
           {items.length === 0 ? (
-            <UploadBox onFilesAdded={handleFilesAdded} />
+            <UploadBox onFilesAdded={handleFilesAdded} path={normalizedPath} />
           ) : (
             <Converter
               items={items}
@@ -370,10 +438,10 @@ export default function App() {
         </section>
 
         {/* Features / Why Choose Us Grid */}
-        <Features />
+        <Features path={normalizedPath} />
 
         {/* FAQs Section */}
-        <FAQ />
+        <FAQ path={normalizedPath} />
       </main>
 
       {/* Footer */}
